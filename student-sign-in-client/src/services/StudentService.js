@@ -20,5 +20,11 @@ export default {
         return axios.patch(`${base_url}/${student.id}`, student).then(response => {
             return response.data
         })
+    },
+
+    deleteStudent(id) {
+        return axios.delete(`${base_url}/${id}`).then(response => {
+            return response.data
+        })
     }
 }

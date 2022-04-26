@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
         starID: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                is: /^[a-z]{2}\d{4}[a-z]{2}$/
+            }
         },
 
         present: {
@@ -20,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
 
-    Student.sync({ force: false }).then( () => {
+    Student.sync({ force: true }).then( () => {
         console.log('Synced student table ')
     })
 
