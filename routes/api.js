@@ -16,4 +16,13 @@ router.post('/students', function(req, res, next) {
     })
 })
 
+router.patch('/students/:id', function(req, res, next){
+    let studentID = req.params.id
+    let updatedStudent = req.body
+    Student.update( updatedStudent, { where: {id: studentID } } )
+        .then( () => {
+            return res.send('ok')
+        })
+})
+
 module.exports = router
